@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    let playerSelection, computerSelection = 0;
+    let playerRoundsWon = 0;
+    let compRoundsWon = 0;
+
+        //computer choice
+      function computerPlay() {
+        let randomNumber = Math.random();
+        if (randomNumber < 0.34) {
+          return ("rock")
+        } else if (randomNumber <= 0.67) {
+          return ("paper") 
+        } else {
+         return ("scissors")
+        }
+      }
+      //Play a round
+      function playRound(playerSelection, computerSelection) {
+
+        // Get selections from both players
+        playerSelection = window.prompt("Do you choose rock, paper, or scissors?").toLowerCase();
+        computerSelection = computerPlay();
+
+        compRoundsWon
+        playerRoundsWon
+
+        //compare outcome
+        if (playerSelection == computerSelection){
+          return ("This round was a tie!") //tie
+        } else if ((playerSelection == "rock") && (computerSelection == "paper")){
+          return ("You chose rock, computer chose paper. You lose!") //Player loss, rock
+         compRoundsWon++;
+        } else if ((playerSelection == "rock") && (computerSelection == "scissors")){
+          return ("you chose rock, computer chose scissors. You win!") //Player wins, rock
+         playerRoundsWon++;
+        } else if ((playerSelection == "paper") && (computerSelection == "scissors")){
+          return ("You chose paper, computer chose rock. You lose!") //Player loss, rpaper
+         compRoundsWon++;
+        } else if ((playerSelection == "paper") && (computerSelection == "rock")){
+          return ("You chose paper, computer chose rock. You win!") //Player wins, paper
+         playerRoundsWon++;
+        } else if ((playerSelection == "scissors") && (computerSelection == "rock")){
+          return ("You chose scissors, computer chose rock. You lose!") //Player loss, scissors
+         compRoundsWon++;
+        } else if ((playerSelection == "scissors") && (computerSelection == "paper")){
+          return ("You chose scissors, computer chose paper. You win!") //Player wins, scissors
+         playerRoundsWon++;
+        } else {
+          return ("Hey! Stop cheating! Computer gets a point.")
+          compRoundsWon++;
+        }
+      }
+      //Plays 5 rounds, compares score
+      function game() {
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(playRound(playerSelection, computerSelection))
+
+        compRoundsWon
+        playerRoundsWon
+        if (compRoundsWon > playerRoundsWon) {
+          console.log("Computer wins this game");
+        } else if (compRoundsWon < playerRoundsWon) {
+          console.log("You win this game!!!");
+        } else if (compRoundsWon == playerRoundsWon) {
+          console.log("We tied this game!"); 
+        } else {
+          console.log("Oh no! Something broke!"); 
+        }
+        }
+      
+
+      game();
+</script>
+</body>
+</html>
